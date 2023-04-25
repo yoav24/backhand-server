@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = 3001
 
 // app.use(express.static("public"))
 
@@ -30,6 +30,7 @@ const port = 3000
 
 const routerIndex = require('./routes/index')
 app.use('/', routerIndex)
+// app.use('/cats', routerIndex)
 
 // const something = {
 //     name: "Yoav",

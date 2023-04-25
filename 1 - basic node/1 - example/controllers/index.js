@@ -5,3 +5,10 @@ exports.getIndex = (req, res) => { //req= request, res = responce
         console.log(error)
     }
 }
+exports.getIndex = (req, res) => { //req= request, res = responce
+    try {
+       
+    } catch (error) {
+        console.log(error)
+    }
+}

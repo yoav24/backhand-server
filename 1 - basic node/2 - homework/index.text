@@ -1,0 +1,66 @@
+1.to create a server you need to write in the terminal npm init --y (its will create a package.json file)
+2. you neeed to create a JS file and connect him the package json file for example- "main": "app.js",
+3. now you need to install in the terminal express for example- npm i express after the installing creates a node_modules folder
+4. create a .gitignore file and write node_modules
+5. connecting express to the server file and a port for example-
+const express = require('express')
+const app = express()
+const port = 3000
+6. add a lisner function for example-
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+})
+7. to run the project we use "node file name(app.js)" or "nodemon"
+8. express.static() its a function that give us access to a static folder(public) in the static folder must be a index.html file
+static folder can include html,css,js,images,video and music files to use the static folder we use app.use(express.static("public")) 
+we can use diffrent path to show diffrent static folders for example-
+app.use('/public', express.static("public"))
+app.use('/pictures', express.static("images"))
+9. from main folder we can get to others folders
+10. for  requests from the client you need to create 2 folders: controller and routes
+--controllers--
+this folder include files and functions
+for example- 
+exports.getIndex = (req, res) => { //req= request, res = responce
+    try {
+       
+    } catch (error) {
+        console.log(error)
+    }
+} 
+*exports = exit confirmation of the function, without it we can not use the function outside the file
+*req = request - בקשה - 
+*res = response - תשובה
+*try = the function is trying to do something
+*catch = the function is catching the errors
+
+--routers--
+this folder has a js file with routers/path and which function(controller) the path use.
+to use router we need to import the router function from express, for example: 
+const { Router } = require('express')
+const router = Router()
+
+You can make diffternt types of requests in the router: POST, GET, PATCH, PUT, DELETE
+for example: 
+router
+    .get('/', getIndex)
+    .post('/name', getName)
+    .get('/get-date', getDate)
+
+To use the router outside the file you export all the file by using :
+module.exports = router
+
+--server--
+to use the routers we need to connect it to app/server.js for example-
+const routerIndex = require('./routes/index')
+app.use('/', routerIndex)
+
+
+
+
+
+
+
+
+
+
