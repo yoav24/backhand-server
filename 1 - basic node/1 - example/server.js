@@ -29,7 +29,7 @@ const port = 3001
 // })
 
 const routerIndex = require('./routes/index')
-app.use('/', routerIndex)
+app.use('/api', routerIndex) //   path  = /api/get-hello, /api/send-hello
 // app.use('/cats', routerIndex)
 
 // const something = {

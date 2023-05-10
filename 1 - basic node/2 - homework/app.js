@@ -8,8 +8,8 @@ app.use("/dogPic",express.static("dog"))
 app.use("/catPic",express.static("cat"))
 app.use("/numbers",express.static("numbers"))
 
-
-
+const routerIndex = require('./routes/index')
+app.use('/api', routerIndex)
 
 
 function multiple(x,y){

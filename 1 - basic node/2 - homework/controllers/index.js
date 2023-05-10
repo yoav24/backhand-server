@@ -5,10 +5,17 @@ exports.getIndex = (req, res) => { //req= request, res = responce
         console.log(error)
     }
 }
-exports.sendSomething = (req, res) => { //req= request, res = responce
+exports.checkrouter = (req, res) => { 
     try {
-        res.send('<div>Something</div>')
+        res.send('<div>checkrouter</div>')
     } catch (error) {
         console.log(error)
-    } 
+    }
+}
+exports.check = (req,res) => {
+    try{
+        res.send('<div>👍</div>')
+    }catch (error){
+        console.log(error)
+    }
 }
