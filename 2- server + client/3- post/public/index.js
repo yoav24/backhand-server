@@ -22,8 +22,8 @@ const render = (arr)=>{
 }
 
 const updateArr = async () => {
-    const nameUser = "Yoav"
-    const ageUser =11
+    const nameUser = prompt('enter your name')
+    const ageUser =+prompt('enter your age')
     const {data}= await axios.post('/updaet-arrOfriends', {nameUser, ageUser})
     console.log(data)
     render(data)
