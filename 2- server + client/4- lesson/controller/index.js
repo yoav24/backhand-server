@@ -17,3 +17,16 @@ exports.sendData = (req,res)=>{
         console.log(error)
     }
 }
+exports.updateUser = (req,res)=>{
+    try {
+        const {userName, id}= req.body
+        // console.log(userName)
+
+    // update the user name by find the user via id
+
+        // res.send(userArr)
+        res.send({userName, id})
+    } catch (error) {
+        console.log(error)
+    }
+}

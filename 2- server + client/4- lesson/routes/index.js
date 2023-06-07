@@ -1,9 +1,10 @@
 const {Router} = require ('express')
 const router = Router()
-const {update,sendData} = require("../controller/index")
+const {update,sendData,updateUser} = require("../controller/index")
 
 router
     .post('/update-user', update)
-    .get('/', sendData)
+    .get('/get-users', sendData)
+    .post('/getUptadedUsers',updateUser)
 
 module.exports = router
