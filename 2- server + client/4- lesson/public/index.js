@@ -14,8 +14,28 @@ const sendDataToServer = async (ev) => {
         console.log(error)
     }
 }
+const inputsValue = document.querySelector('.inputsValue')
+const getData = async() =>{
+    const {data}= await axios.get('/')
+    render(data)
+    console.log(data)
+}
 
- 
+
+const render = (arr)=>{
+    let html= ''
+     arr.forEach(el => {
+        html+=`
+        <div>
+        <p>the name of the user is ${el.name} and his age is ${el.age}</p>
+        </div>
+        `
+     });
+    //  console.log(html)
+     inputsValue.innerHTML = html
+}
+
+
 /*
 --HW--
 1. Create a render funtion

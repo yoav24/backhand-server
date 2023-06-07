@@ -10,3 +10,10 @@ exports.update = (req, res) => {
     res.send(userArr)
 
 }
+exports.sendData = (req,res)=>{
+    try {
+        res.send(userArr)
+    } catch (error) {
+        console.log(error)
+    }
+}
