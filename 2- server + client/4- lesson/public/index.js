@@ -8,10 +8,16 @@ const sendDataToServer = async (ev) => {
         const age = ev.target.elements.userAge.value
         console.log(name, age)
 
-        const { data } = await axios.post("/api/update-user", { name, age })
+        const { data: { userArr, message } } = await axios.post("/api/update-user", { name, age }) //the first option
 
-        console.log(data)
-        render(data)
+        // const { data } = await axios.post("/api/update-user", { name, age }) // the second option
+        // const { userArr, message} = data 
+
+        // console.log(data)
+        console.log(userArr)
+        console.log(message)
+        // render(data ) // the old option
+        render(userArr)
 
     } catch (error) {
         console.log(error)
@@ -32,10 +38,10 @@ const render = (arr) => {
         html += `
         <div>
             <p>the name of the user is ${el.name} and his age is ${el.age}</p>
-            <button type="button" class="updateButton" id="updateBtn" onclick="updateUserNameForm()">Update User</button>
-            <form  onsubmit="updateUserName(event, '${el.id}')" class="updateForm" > <!--id="..."-->
+            <!-- <button type="button" class="updateButton" id="updateBtn" onclick="updateUserNameForm()">Update User</button>-->
+            <form onsubmit="updateUserName(event, '${el.id}')" class="updateForm" > <!--id="..."-->
                 <input type="text" name="userName" value="${el.name}"/>
-                <button type="submit">Send</button>
+                <button type="submit">Update User Name</button>
             </form>
         </div>
         `
@@ -51,14 +57,11 @@ const render = (arr) => {
 
 const updateUserName = async (ev, id) => {
     ev.preventDefault()
-
     const userName = ev.target.elements.userName.value
     const { data } = await axios.post("/api/getUptadedUsers", { userName, id })
-    console.log(data)
-
-    // render(...)
-
+    render(data)
 }
+
 /*
 --HW--
 1. Create a render funtion
