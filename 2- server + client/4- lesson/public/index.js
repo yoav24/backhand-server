@@ -43,6 +43,10 @@ const render = (arr) => {
                 <input type="text" name="userName" value="${el.name}"/>
                 <button type="submit">Update User Name</button>
             </form>
+            <form onsubmit="updateUserAge(event, '${el.id}')" class="updateAge" > 
+                <input type="text" name="userAge" value="${el.age}"/>
+                <button type="submit">Update User Age</button>
+            </form>
         </div>
         `
     });
@@ -61,7 +65,12 @@ const updateUserName = async (ev, id) => {
     const { data } = await axios.post("/api/getUptadedUsers", { userName, id })
     render(data)
 }
-
+const updateUserAge =async (ev, id) =>{
+    ev.preventDefault()
+    const userAge = ev.target.elements.userAge.value
+    const {data}  = await axios.post("api/getUpadatedUserAge",{userAge, id})
+    render(data)
+}
 /*
 --HW--
 1. Create a render funtion

@@ -36,3 +36,17 @@ exports.updateUser = (req, res) => {
         console.log(error)
     }
 }
+exports.uptadeUserAge = (req,res) => {
+    try {
+        const { userAge , id} = req.body
+        console.log(id)
+
+        const index = userArr.findIndex(user => user.id == id)
+        console.log(index)
+        userArr[index].age = userAge
+
+        res.send(userArr)
+    } catch (error) {
+        console.log(error)
+    }
+}
