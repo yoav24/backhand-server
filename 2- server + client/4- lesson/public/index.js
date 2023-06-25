@@ -68,7 +68,7 @@ const updateUserName = async (ev, id) => {
 const updateUserAge =async (ev, id) =>{
     ev.preventDefault()
     const userAge = ev.target.elements.userAge.value
-    const {data}  = await axios.post("api/getUpadatedUserAge",{userAge, id})
+    const {data}  = await axios.post("/api/getUpadatedUserAge",{userAge, id})
     render(data)
 }
 /*
