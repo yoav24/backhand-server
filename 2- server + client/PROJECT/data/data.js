@@ -1,5 +1,5 @@
-const { uid } = require("../helpers/indexHelper");
+const { uid } = require("../helper/helper");
 
-exports.userArr = [
-    {id: uid() ,name:"Yoav", age:"12"}
+exports.shoeArr = [
+    {id: uid() ,shoe:"Yoav", img:"https://cdn-images.farfetch-contents.com/16/65/74/03/16657403_32619235_600.jpg"}
 ]

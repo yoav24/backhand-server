@@ -1,15 +1,12 @@
-const { shoeArr } = require("../data/index")
-const { uid } = require("../helpers/indexHelper")
+const { shoeArr } = require("../data/data")
+const { uid } = require("../helper/helper")
 
 
 exports.update = (req, res) => {
     console.log(req.body)
-    const { name, age } = req.body
+    const { shoe, img } = req.body
 
-    userArr.push({ id: uid(), name, age })
+    shoeArr.push({ id: uid(), shoe, img })
 
-    // console.log(userArr)
-    // res.send({userArr, message: "...."})
-    // res.send(userArr)
-    res.send({ userArr, message: "User Saved" })
+    res.send({ shoeArr, message: "User Saved" })
 }
